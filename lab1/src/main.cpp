@@ -24,9 +24,9 @@ int main(int argc, char* argv[]) {
         el = rand() % 1000;
     }
 
-    // std::cout << "Исходный массив:\n";
-    // print_vector(common_vector);
-    // std::cout << "\n\n";
+    std::cout << "Исходный массив:\n";
+    print_vector(common_vector);
+    std::cout << "\n\n";
 
     statistic_t res;
     for (size_t i = 0; i < sizes.size(); i++) {
@@ -41,6 +41,7 @@ int main(int argc, char* argv[]) {
             std::vector<int> current_vector = cur_size_vector;
             std::cout << "Элементы в случайном порядке: ";
             res = sorts[j].alg(current_vector);
+            print_vector(current_vector);
             std::cout << "сравнений " << res.comparisons << ", перестановок "
                       << res.transposition << std::endl;
 
@@ -48,6 +49,7 @@ int main(int argc, char* argv[]) {
             res = sorts[j].alg(current_vector);
             std::cout << "сравнений " << res.comparisons << ", перестановок "
                       << res.transposition << std::endl;
+            print_vector(current_vector);
 
             for (auto& el : current_vector) {
                 el *= -1;
@@ -56,6 +58,7 @@ int main(int argc, char* argv[]) {
             res = sorts[j].alg(current_vector);
             std::cout << "сравнений " << res.comparisons << ", перестановок "
                       << res.transposition << std::endl;
+            print_vector(current_vector);
         }
         std::cout << std::endl;
     }
